@@ -1,39 +1,43 @@
+// Stores the value in key value pair.
+// keys  are unique cannot be duplicate values can be duplicate
+
 #include <bits/stdc++.h>
 
 using namespace std;
 
 int main()
 {
-    set<int> s;
-    for (int i = 1; i <= 10; i++)
-    { // Iterate through 10 and insert the value of i in the set
-        s.insert(i);
+    map<int, int> mp;
+    for (int i = 1; i <= 5; i++)
+    {
+        mp.insert({i, i * 10});
     }
 
-    cout << "Elements present in the set: ";
-    for (auto it = s.begin(); it != s.end(); it++)
+    cout << "Elements present in the map: " << endl;
+    cout << "Key\tElement" << endl;
+    for (auto it = mp.begin(); it != mp.end(); it++)
     {
-        cout << *it << " "; // If element is found print it
+        cout << it->first << "\t" << it->second << endl;
     }
-    cout << endl;
+
     int n = 2;
-    if (s.find(2) != s.end())
-        cout << n << " is present in set" << endl; // Print the element
+    if (mp.find(2) != mp.end())
+        cout << n << " is present in map" << endl;
 
-    s.erase(s.begin());
-    cout << "Elements after deleting the first element: ";
-    for (auto it = s.begin(); it != s.end(); it++)
+    mp.erase(mp.begin());
+    cout << "Elements after deleting the first element: " << endl;
+    cout << "Key\tElement" << endl;
+    for (auto it = mp.begin(); it != mp.end(); it++)
     {
-        cout << *it << " ";
+        cout << it->first << "\t" << it->second << endl;
     }
-    cout << endl;
 
-    cout << "The size of the set is: " << s.size() << endl; /// Return the size of the set
+    cout << "The size of the map is: " << mp.size() << endl;
 
-    if (s.empty() == false)
-        cout << "The set is not empty " << endl; // If set is not empty and elements are still present in it
+    if (mp.empty() == false)
+        cout << "The map is not empty " << endl;
     else
-        cout << "The set is empty" << endl; // If set is empty
-    s.clear();
-    cout << "Size of the set after clearing all the elements: " << s.size();
+        cout << "The map is empty" << endl;
+    mp.clear();
+    cout << "Size of the map after clearing all the elements: " << mp.size();
 }
